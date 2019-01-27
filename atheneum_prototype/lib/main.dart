@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'bookdet.dart';
+import 'details.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -12,117 +13,226 @@ class AppWrapper extends StatefulWidget {
   _AppWrapperState createState() => _AppWrapperState();
 }
 
-class _AppWrapperState extends State<AppWrapper> {
+class _AppWrapperState extends State<AppWrapper> with SingleTickerProviderStateMixin {
+  TabController controller;        
+  @override                                    
+  void initState(){                             
+    super.initState();
+    controller = TabController(vsync: this,length: 2);   
+  }
+  @override
+  void dispose(){                           
+    controller.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     double bookSpacing = w / 25.0;
-    GestureDetector GestD(String dir){
+    GestureDetector gestD(String dir){
       return GestureDetector(
-                      child: Hero(
-                        tag: 'hero',
-                        child: Image.asset(
-                        dir,
-                        fit: BoxFit.fill,
-                        height: h / 9.0,
-                      ),
-                      ),
-                      onTap: () {
-                        Navigator.push(context,MaterialPageRoute(builder: (context) {
-                          return BookPage("New book",dir);
-                        }));
-                      });
+         child: Hero(
+            tag: 'hero',
+            child: Image.asset(
+              dir,
+              fit: BoxFit.fill,
+              height: h / 9.0,
+            ),
+          ),
+           onTap: () async {
+           Navigator.push(context,MaterialPageRoute(builder: (context) {
+            return BookPage("New book",dir);
+           }));
+          }
+      );
     }
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: null,
-      body: Stack(
-        children: <Widget>[
-          Image(image: AssetImage("assets/shelf.jpg"),
-            fit: BoxFit.fill,),
-          Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(left: h / 25.0, top: h / 8.0),
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            expandedHeight: 150.0,          
+            floating: true,            
+            pinned: true,
+            snap: true,
+            //title: Text("Auto Atheneum"),
+            flexibleSpace: FlexibleSpaceBar(        
+              title: Text("Auto Atheneum"),
+              background: Image.asset("assets/gbooks.jpg",fit: BoxFit.fill,),     
+              
+            ),
+            bottom: TabBar(               
+              controller: controller,
+              tabs: <Widget>[
+                Text("1st Shelf"),
+                Text("2nd Shelf"),
+              ]  
+           )
+          ),
+          SliverFillRemaining(             
+            child: TabBarView(              
+              controller: controller,
+              children: <Widget>[
+                Stack(
+                 children: <Widget>[
+                   Container(
+                     decoration: BoxDecoration(
+                       image: DecorationImage(
+                         image: AssetImage("assets/shelf.jpg"),
+                          fit: BoxFit.fitWidth
+                        )
+                      ),
+                    ),
+                    SingleChildScrollView(
+                    child: Container(
+                      color: Colors.transparent,
+                       child: Column(
+                       children: <Widget>[
+
+                         // for(var i = 0; i <=5; i++) {
+                        //     Padding(
+                        //       padding: EdgeInsets.only(left: h / 25.0, top: h / 9.0),
+                        //       child: Row(
+                        //           children: <Widget>[
+                        //              for (var j = 0; j < count; j++) {
+                        //                 GestD('assets/${Shelf1[i][j][0]}.jpg'),
+                        //                 Padding(padding: EdgeInsets.all(bookSpacing)),
+                        //             };
+                        //           ], 
+                        //         ),
+                        //       ),
+                        // },
+
+                         Padding(
+              padding: EdgeInsets.only(left: h / 25.0, top: h / 9.0),
               child: Row(
                 children: <Widget>[
-                  GestD('assets/images_1.jpeg'),
+                  gestD('assets/images_1.jpeg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images_2.jpeg'),
+                  gestD('assets/images_2.jpeg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images_3.jpeg'),
+                  gestD('assets/images_3.jpeg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images_13.jpeg')
+                  gestD('assets/images_13.jpeg')
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: h / 25.0, top: h / 20.0),
+                         Padding(
+              padding: EdgeInsets.only(left: h / 25.0, top: h / 16.0),
               child: Row(
                 children: <Widget>[
-                  GestD('assets/images_14.jpeg'),
+                  gestD('assets/images_14.jpeg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images_15.jpeg'),
+                  gestD('assets/images_15.jpeg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images4.jpeg'),
+                  gestD('assets/images4.jpeg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images5.jpeg'),
+                  gestD('assets/images5.jpeg'),
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: h / 25.0, top: h / 20.0),
+                         Padding(
+              padding: EdgeInsets.only(left: h / 25.0, top: h / 16.0),
               child: Row(
                 children: <Widget>[
-                  GestD('assets/images6.jpeg'),
+                  gestD('assets/images6.jpeg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images7.jpeg'),
+                  gestD('assets/images7.jpeg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images8.jpeg'),
+                  gestD('assets/images8.jpeg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images9.jpeg'),
+                  gestD('assets/images9.jpeg'),
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: h / 30.0, top: h / 20.0),
+                         Padding(
+              padding: EdgeInsets.only(left: h / 25.0, top: h / 16.0),
               child: Row(
                 children: <Widget>[
-                  GestD('assets/images10.jpeg'),
+                  gestD('assets/images10.jpeg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images11.jpeg'),
+                  gestD('assets/images11.jpeg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images_14.jpeg'),
+                  gestD('assets/images_14.jpeg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images_16.jpg'),
+                  gestD('assets/images_16.jpg'),
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: h / 28.0, top: h / 20.0),
+                         Padding(
+              padding: EdgeInsets.only(left: h / 25.0, top: h / 16.0),
               child: Row(
                 children: <Widget>[
-                  GestD('assets/images17.jpg'),
+                  gestD('assets/images17.jpg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images18.jpg'),
+                  gestD('assets/images18.jpg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images20.jpg'),
+                  gestD('assets/images20.jpg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  GestD('assets/images19.jpg'),
+                  gestD('assets/images19.jpg'),
                 ],
               ),
             )
+                       ],
+                     )
+            
+                     )
+                    ) 
+                  ],
+                ) 
+              ]
+            )   
+          )
+        ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.lightBlue,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            Icon(Icons.bookmark_border,color: Colors.white,),
+            Text("Book name",style: TextStyle(color: Colors.white,fontSize: 20.0),)
           ],
-        )]));
+        ),
+      ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          filterdialog(context);
+        },
+        tooltip: "filter",
+        child: Icon(Icons.filter_list),
+      ),
+    );
     
   }
 }
 
+void filterdialog(BuildContext context)
+  {
+   var dialog = SimpleDialog(
+     title: Text("Filter",),
+     
+    );
+    showDialog(
+      context: context,
+     builder: (BuildContext context)
+     {
+      return dialog;
+     }
+    );
 
-/*class GestD extends StatelessWidget{
+  } 
+
+
+/*class gestD extends StatelessWidget{
   double h;
     String dir;
-    GestD(this.dir,this.h);
+    gestD(this.dir,this.h);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

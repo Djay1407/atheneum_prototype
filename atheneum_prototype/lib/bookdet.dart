@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BookPage extends StatefulWidget {
-  String name,dir;
+  final name,dir;
   BookPage(this.name,this.dir);
 
   @override
