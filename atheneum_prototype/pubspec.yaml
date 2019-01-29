@@ -71,7 +71,7 @@ flutter:
     - assets/Pride and Prejudice .jpg
     - assets/Romeo and Juliet .jpg
     - assets/The Notebook .jpg
-    - assets/The Time Traveler's Wife .jpg
+    - assets/The Time Travelers Wife .jpg
     - assets/The Bourne Identity .jpg
     - assets/The Da Vinci Code.jpg
     - assets/The Girl with the Dragon Tattoo.jpg
@@ -107,6 +107,9 @@ flutter:
     - assets/STAMPED FROM THE BEGINNING.jpg
     - assets/THE LIARS.jpg
     - assets/WILD SWANS.jpg
+    - assets/action_081-account-user-profile-avatar-512.png
+    - assets/books-background-images-12.jpg
+    - assets/images.jpg
 
 
 
