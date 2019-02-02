@@ -33,7 +33,7 @@ class _AppWrapperState extends State<AppWrapper> with SingleTickerProviderStateM
     GestureDetector gestD(String dir){
       return GestureDetector(
          child: Hero(
-            tag: 'hero',
+            tag: dir,
             child: Image.asset(
               dir,
               fit: BoxFit.fill,
@@ -81,63 +81,65 @@ class _AppWrapperState extends State<AppWrapper> with SingleTickerProviderStateM
             )],),
             )
             ]),
-             ListView(
-                shrinkWrap: true,
-                children: <Widget>[
-                  ListTile(
-                    leading: Icon(Icons.bookmark_border),
-                    title: Text("Bookmarks",style: TextStyle(fontSize: 17.0),),
-                    onTap: (){},
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.book),
-                    title: Text("My books",style: TextStyle(fontSize: 17.0),),
-                    onTap: (){},
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.trending_up),
-                    title: Text("Trending",style: TextStyle(fontSize: 17.0),),
-                    onTap: (){},
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.star),
-                    title: Text("Latest",style: TextStyle(fontSize: 17.0),),
-                    onTap: (){},
-                  ),
-                  Divider(height: 2.0,),
-                  ListTile(
-                    leading: Icon(Icons.account_circle),
-                    title: Text("Account",style: TextStyle(fontSize: 17.0),),
-                    onTap: (){},
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.subscriptions),
-                    title: Text("Subscription",style: TextStyle(fontSize: 17.0),),
-                    onTap: (){},
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.settings),
-                    title: Text("Settings",style: TextStyle(fontSize: 17.0),),
-                    onTap: (){},
-                  ),
-                  Divider(height: 2.0,),
-                  ListTile(
-                    leading: Icon(Icons.help),
-                    title: Text("Help",style: TextStyle(fontSize: 17.0),),
-                    onTap: (){},
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.question_answer),
-                    title: Text("FAQs",style: TextStyle(fontSize: 17.0),),
-                    onTap: (){},
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.verified_user),
-                    title: Text("About Us",style: TextStyle(fontSize: 17.0),),
-                    onTap: (){},
-                  ),
-                ],
-              ),
+             SingleChildScrollView(
+                            child: ListView(
+                  shrinkWrap: true,
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.bookmark_border),
+                      title: Text("Bookmarks",style: TextStyle(fontSize: 17.0),),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.book),
+                      title: Text("My books",style: TextStyle(fontSize: 17.0),),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.trending_up),
+                      title: Text("Trending",style: TextStyle(fontSize: 17.0),),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.star),
+                      title: Text("Latest",style: TextStyle(fontSize: 17.0),),
+                      onTap: (){},
+                    ),
+                    Divider(height: 2.0,),
+                    ListTile(
+                      leading: Icon(Icons.account_circle),
+                      title: Text("Account",style: TextStyle(fontSize: 17.0),),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.subscriptions),
+                      title: Text("Subscription",style: TextStyle(fontSize: 17.0),),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.settings),
+                      title: Text("Settings",style: TextStyle(fontSize: 17.0),),
+                      onTap: (){},
+                    ),
+                    Divider(height: 2.0,),
+                    ListTile(
+                      leading: Icon(Icons.help),
+                      title: Text("Help",style: TextStyle(fontSize: 17.0),),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.question_answer),
+                      title: Text("FAQs",style: TextStyle(fontSize: 17.0),),
+                      onTap: (){},
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.verified_user),
+                      title: Text("About Us",style: TextStyle(fontSize: 17.0),),
+                      onTap: (){},
+                    ),
+                  ],
+                ),
+             ),
             
           ],
           
@@ -250,7 +252,7 @@ class _AppWrapperState extends State<AppWrapper> with SingleTickerProviderStateM
                   Padding(padding: EdgeInsets.all(bookSpacing)),
                   gestD('assets/The Bourne Identity .jpg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/The Bourne Identity .jpg'),
+                  gestD('assets/Time Travelers Wife.jpg'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
                   gestD('assets/The Da Vinci Code.jpg'),
                 ],
