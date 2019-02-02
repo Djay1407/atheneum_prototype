@@ -10,6 +10,16 @@ class BookPage extends StatefulWidget {
 
 class _BookPageState extends State<BookPage> {
 
+  int _rating = 0;
+
+void rate(int rating) {
+  //Other actions based on rating such as api calls.
+  setState(() {
+    _rating = rating;
+  });
+}
+TextEditingController descController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,13 +60,74 @@ class _BookPageState extends State<BookPage> {
 
             ],
           ),
+          
           Card(
-            color: Colors.black12,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7.0)),
-            child: Padding(
-              padding: EdgeInsets.all(4.0),
-              child: Text("Review :",style: TextStyle(fontSize: 20.0,color: Colors.white),),),
-          )
+        color: Colors.lightBlueAccent,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7.0)),
+        child: Column(
+                 children: <Widget>[ 
+                   Text("Rating",style: TextStyle(fontSize: 20.0,color: Colors.white),),
+                   
+                   Padding(
+            padding: EdgeInsets.all(5.0),
+                    child: new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new GestureDetector(
+                  child: new Icon(
+                    Icons.star,
+                    color: _rating >= 1 ? Colors.orange : Colors.grey,
+                  ),
+                  onTap: () => rate(1),
+                ),
+                new GestureDetector(
+                  child: new Icon(
+                    Icons.star,
+                    color: _rating >= 2 ? Colors.orange : Colors.grey,
+                  ),
+                  onTap: () => rate(2),
+                ),
+                new GestureDetector(
+                  child: new Icon(
+                    Icons.star,
+                    color: _rating >= 3 ? Colors.orange : Colors.grey,
+                  ),
+                  onTap: () => rate(3),
+                ),
+                new GestureDetector(
+                  child: new Icon(
+                    Icons.star,
+                    color: _rating >= 4 ? Colors.orange : Colors.grey,
+                  ),
+                  onTap: () => rate(4),
+                ),
+                new GestureDetector(
+                  child: new Icon(
+                    Icons.star,
+                    color: _rating >= 5 ? Colors.orange : Colors.grey,
+                  ),
+                  onTap: () => rate(5),
+                )
+              ],
+            ),
+          ),
+                  ] ),
+      ),
+      Padding(padding: EdgeInsets.all(15.0),
+            child: TextField(                             //Description Textfield
+              controller: descController,
+              onChanged: (val){
+                  setState(() {
+                  debugPrint("changed"); });},
+              decoration: InputDecoration(
+                labelText: "description",
+                hintText: "give description", 
+                border: OutlineInputBorder(               //creates a border with corner radius 5.0
+                  borderRadius: BorderRadius.circular(5.0)   
+                ) 
+              ),
+            ),
+            ),
         ],
       )
     );
