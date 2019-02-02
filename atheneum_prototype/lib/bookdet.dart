@@ -120,8 +120,8 @@ TextEditingController descController = TextEditingController();
                   setState(() {
                   debugPrint("changed"); });},
               decoration: InputDecoration(
-                labelText: "description",
-                hintText: "give description", 
+                labelText: "Add comment",
+                hintText: "comment...", 
                 border: OutlineInputBorder(               //creates a border with corner radius 5.0
                   borderRadius: BorderRadius.circular(5.0)   
                 ) 
