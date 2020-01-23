@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'details.dart';
 
 class SearchList extends StatefulWidget {
   SearchList({ Key key }) : super(key: key);
@@ -44,17 +45,19 @@ class _SearchListState extends State<SearchList>
 
   void init() {
     _list = List();
-    _list.add("Google");
-    _list.add("IOS");
-    _list.add("Andorid");
-    _list.add("Dart");
-    _list.add("Flutter");
-    _list.add("Python");
-    _list.add("React");
-    _list.add("Xamarin");
-    _list.add("Kotlin");
-    _list.add("Java");
-    _list.add("RxAndroid");
+    
+    for (int i = 0; i < shelf1.length; i++){
+      for (int j = 0; j < shelf1[i].length; j++){
+        _list.add(shelf1[i][j][0]);
+      }
+    }
+    for (int i = 0; i < shelf2.length; i++){
+      for (int j = 0; j < shelf2[i].length; j++){
+        _list.add(shelf2[i][j][0]);
+      }
+    }
+    
+    
   }
 
   @override

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'bookdet.dart';
 import 'details.dart';
+import 'search.dart';
 
 void main() {
   runApp(MaterialApp(
+    color: Colors.black,
+    debugShowCheckedModeBanner: false,
       title: "Auto Atheneum",
       home: AppWrapper(),));
 }
@@ -35,7 +38,7 @@ class _AppWrapperState extends State<AppWrapper> with SingleTickerProviderStateM
          child: Hero(
             tag: dir,
             child: Image.asset(
-              dir,
+              'assets/$dir.jpg',
               fit: BoxFit.fill,
               height: h / 9.0,
             ),
@@ -204,7 +207,7 @@ class _AppWrapperState extends State<AppWrapper> with SingleTickerProviderStateM
 
                         //  for(var i = 0; i <=5; i++) {
                         //     Padding(
-                        //       padding: EdgeInsets.only(left: h / 25.0, top: h / 9.0),
+                        //       padding: EdgeInsets.only(left: h / 29.0, top: h / 9.0),
                         //       child: Row(
                         //           children: <Widget>[
                         //              for (var j = 0; j < count; j++) {
@@ -217,72 +220,72 @@ class _AppWrapperState extends State<AppWrapper> with SingleTickerProviderStateM
                         // },
 
                          Padding(
-              padding: EdgeInsets.only(left: h / 30.0, top: h / 16.0),
+              padding: EdgeInsets.only(left: h / 29.0, top: h / 12.0),
               child: Row(
                 children: <Widget>[
-                  gestD('assets/Never Let me Go.jpg'),
+                  gestD('Never Let me Go'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/The Bone Clocks.jpg'),
+                  gestD('The Bone Clocks'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/The Snow Child.jpg'),
+                  gestD('The Snow Child'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/Black Moon.jpg')
+                  gestD('Black Moon')
                 ],
               ),
             ),
                          Padding(
-              padding: EdgeInsets.only(left: h / 30.0, top: h / 28.0),
+              padding: EdgeInsets.only(left: h / 29.0, top: h / 23.0),
               child: Row(
                 children: <Widget>[
-                  gestD('assets/The Graveyard Book.jpg'),
+                  gestD('The Graveyard Book'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/Jane Eyre.jpg'),
+                  gestD('Jane Eyre'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/Pride and Prejudice .jpg'),
+                  gestD('Pride and Prejudice '),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/Romeo and Juliet .jpg'),
+                  gestD('Romeo and Juliet '),
                 ],
               ),
             ),
                          Padding(
-              padding: EdgeInsets.only(left: h / 25.0, top: h / 30.0),
+              padding: EdgeInsets.only(left: h / 29.0, top: h / 23.0),
               child: Row(
                 children: <Widget>[
-                  gestD('assets/The Notebook .jpg'),
+                  gestD('The Notebook '),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/The Bourne Identity .jpg'),
+                  gestD('The Bourne Identity '),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/Time Travelers Wife.jpg'),
+                  gestD('Time Travelers Wife'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/The Da Vinci Code.jpg'),
+                  gestD('The Da Vinci Code'),
                 ],
               ),
             ),
                          Padding(
-              padding: EdgeInsets.only(left: h / 30.0, top: h / 30.0),
+              padding: EdgeInsets.only(left: h / 29.0, top: h / 23.0),
               child: Row(
                 children: <Widget>[
-                  gestD('assets/The Girl with the Dragon Tattoo.jpg'),
+                  gestD('The Girl with the Dragon Tattoo'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/The Hobbit .jpg'),
+                  gestD('The Hobbit '),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/The Hunger Games .jpg'),
+                  gestD('The Hunger Games '),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/And Then There Were None .jpg'),
+                  gestD('And Then There Were None '),
                 ],
               ),
             ),
                          Padding(
-              padding: EdgeInsets.only(left: h / 25.0, top: h / 30.0),
+              padding: EdgeInsets.only(left: h / 29.0, top: h / 23.0),
               child: Row(
                 children: <Widget>[
-                  gestD('assets/Angels & Demons.jpg'),
+                  gestD('Angels & Demons'),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/In Cold Blood .jpg'),
+                  gestD('In Cold Blood '),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/Rebecca .jpg'),
+                  gestD('Rebecca '),
                   Padding(padding: EdgeInsets.all(bookSpacing)),
-                  gestD('assets/The Godfather .jpg'),
+                  gestD('The Godfather '),
                 ],
               ),
             )
@@ -311,7 +314,7 @@ class _AppWrapperState extends State<AppWrapper> with SingleTickerProviderStateM
 
                                 // for(var i = 0; i <=5; i++) {
                                 //     Padding(
-                                //       padding: EdgeInsets.only(left: h / 25.0, top: h / 9.0),
+                                //       padding: EdgeInsets.only(left: h / 29.0, top: h / 9.0),
                                 //       child: Row(
                                 //           children: <Widget>[
                                 //              for (var j = 0; j < count; j++) {
@@ -324,72 +327,72 @@ class _AppWrapperState extends State<AppWrapper> with SingleTickerProviderStateM
                                 // },
 
                                 Padding(
-                                  padding: EdgeInsets.only(left: h / 30.0, top: h / 16.0),
+                                  padding: EdgeInsets.only(left: h / 29.0, top: h / 12.0),
                                   child: Row(
                                     children: <Widget>[
-                                      gestD('assets/The Communist Manifesto .jpg'),
+                                      gestD('The Communist Manifesto '),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/The Complete Works .jpg'),
+                                      gestD('The Complete Works '),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/The Odyssey .jpg'),
+                                      gestD('The Odyssey '),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/The Republic .jpg')
+                                      gestD('The Republic ')
                                     ],
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: h / 30.0, top: h / 28.0),
+                                  padding: EdgeInsets.only(left: h / 29.0, top: h / 23.0),
                                   child: Row(
                                     children: <Widget>[
-                                      gestD('assets/A Life in Parts.jpg'),
+                                      gestD('A Life in Parts'),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/A Moveable Feast.jpg'),
+                                      gestD('A Moveable Feast'),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/Born Standing Up.jpg'),
+                                      gestD('Born Standing Up'),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/Kitchen Confidential.jpg'),
+                                      gestD('Kitchen Confidential'),
                                     ],
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: h / 25.0, top: h / 30.0),
+                                  padding: EdgeInsets.only(left: h / 29.0, top: h / 23.0),
                                   child: Row(
                                     children: <Widget>[
-                                      gestD('assets/The Autobiography of Malcolm X as told by Alex Haley.jpg'),
+                                      gestD('The Autobiography of Malcolm X as told by Alex Haley'),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/Dracula .jpg'),
+                                      gestD('Dracula '),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/Frankenstein.jpg'),
+                                      gestD('Frankenstein'),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/The Comeplete H P Lovecraft Collection.jpg'),
+                                      gestD('The Comeplete H P Lovecraft Collection'),
                                     ],
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: h / 30.0, top: h / 30.0),
+                                  padding: EdgeInsets.only(left: h / 29.0, top: h / 23.0),
                                   child: Row(
                                     children: <Widget>[
-                                      gestD('assets/The Exorcist.jpg'),
+                                      gestD('The Exorcist'),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/The Turn of the Screw.jpg'),
+                                      gestD('The Turn of the Screw'),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/A Double Life .jpg'),
+                                      gestD('A Double Life '),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/An Unwanted Guest .jpg'),
+                                      gestD('An Unwanted Guest '),
                                     ],
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: h / 25.0, top: h / 30.0),
+                                  padding: EdgeInsets.only(left: h / 29.0, top: h / 23.0),
                                   child: Row(
                                     children: <Widget>[
-                                      gestD('assets/Bring Me Back .jpg'),
+                                      gestD('Bring Me Back '),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/Give Me Your Hand.jpg'),
+                                      gestD('Give Me Your Hand'),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/The Good Son.jpg'),
+                                      gestD('The Good Son'),
                                       Padding(padding: EdgeInsets.all(bookSpacing)),
-                                      gestD('assets/HEART BERRIES.jpg'),
+                                      gestD('HEART BERRIES'),
                                     ],
                                   ),
                                 )
@@ -413,25 +416,26 @@ class _AppWrapperState extends State<AppWrapper> with SingleTickerProviderStateM
           // )
       //   ],
       // ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.orange,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            Icon(Icons.bookmark_border,color: Colors.white,),
-            Text("Book name",style: TextStyle(color: Colors.white,fontSize: 17.0),)
-          ],
-        ),
-      ),
+      // bottomNavigationBar: BottomAppBar(
+      //   color: Colors.orange,
+      //   child: Row(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     crossAxisAlignment: CrossAxisAlignment.end,
+      //     children: <Widget>[
+      //       Icon(Icons.bookmark_border,color: Colors.white,),
+      //       Text("Book name",style: TextStyle(color: Colors.white,fontSize: 17.0),)
+      //     ],
+      //   ),
+      // ),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          filterdialog(context);
+         
+          SearchList();
         },
-        tooltip: "filter",
-        child: Icon(Icons.filter_list),
+        tooltip: "Search",
+        child: Icon(Icons.search),
       ),
     );
     
